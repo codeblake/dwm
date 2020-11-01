@@ -43,7 +43,7 @@ static const Rule rules[] = {
 static const float mfact         = 0.465; /* factor of master area size [0.05..0.95] */
 static const int nmaster         = 1;     /* number of clients in master area */
 static const int resizehints     = 1;     /* 1 means respect size hints in tiled resizals */
-static const int attachdirection = 5; /* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
+static const int attachdirection = 4; /* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -125,6 +125,7 @@ static Key keys[] = {
 	{ SUPER,            XK_m,         setlayout,      {.v = &layouts[2]} },  // monocle layout
 	{ SUPER,            XK_space,     setlayout,      {0} },                 // toggle previous layout
 	{ SUPER|CTRL,       XK_f,         togglefloating, {0} },                 // toggle floating on selected
+	{ SUPER|SHIFT,      XK_f,         togglefullscr,  {0} },                 // toggle fullscreen
 	{ SUPER,            XK_n,         cyclelayout,    {.i = -1 } },          // cycle layout left
 	{ SUPER|SHIFT,      XK_n,         cyclelayout,    {.i = +1 } },          // cycle layout right
 
