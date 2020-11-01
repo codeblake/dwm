@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 8;        /* border pixel of windows */
+static const unsigned int borderpx  = 10;       /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gaps      = 50;       /* gap size */
 static const unsigned int gappih    = gaps;     /* horiz inner gap between windows */
@@ -13,18 +13,18 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 40;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int startontag         = 1;        /* 0 means no tag active on start */
-static const int zoomswap           = 1;        /* 0 means default, 1 use zoomswap */
+static const int zoomswap           = 1;        /* 0 means default swap behaviour, 1 will swap master with focus */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#689d6a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_gray1, col_cyan  },
 };
 
 /* tagging */
@@ -93,25 +93,24 @@ static Key keys[] = {
 	/* gaps */
 	{ SUPER,            XK_g,         togglegaps,     {0} },                 // toggle gaps
 	{ SUPER|SHIFT,      XK_g,         defaultgaps,    {0} },                 // reset gaps
-
 	{ SUPER|CTRL,       XK_g,         incrgaps,       {.i = +1 } },          // increase gaps
 	{ SUPER|CTRL|SHIFT, XK_g,         incrgaps,       {.i = -1 } },          // decrease gaps
-
+	/* outer gaps */
 	{ SUPER|CTRL,       XK_o,         incrogaps,      {.i = +1 } },          // increase outer gaps
 	{ SUPER|CTRL|SHIFT, XK_o,         incrogaps,      {.i = -1 } },          // decrease outer gaps
-
+	/* inner gaps */
 	{ SUPER|CTRL,       XK_i,         incrigaps,      {.i = +1 } },          // increase inner gaps
 	{ SUPER|CTRL|SHIFT, XK_i,         incrigaps,      {.i = -1 } },          // decrease inner gaps
-
+	/* inner gaps (slave) */
 	{ SUPER|CTRL,       XK_s,         incrihgaps,     {.i = +1 } },          // increase inner slave gap
 	{ SUPER|CTRL|SHIFT, XK_s,         incrihgaps,     {.i = -1 } },          // decrease inner slave gap
-
+	/* inner gaps (master) */
 	{ SUPER|CTRL,       XK_m,         incrivgaps,     {.i = +1 } },          // increase inner master gap
 	{ SUPER|CTRL|SHIFT, XK_m,         incrivgaps,     {.i = -1 } },          // decrease inner master gap
-
+	/* vertical gaps */
 	{ SUPER|CTRL,       XK_v,         incrohgaps,     {.i = +1 } },          // increase vertical gap
 	{ SUPER|CTRL|SHIFT, XK_v,         incrohgaps,     {.i = -1 } },          // decrease vertical gap
-
+	/* horizontal gaps */
 	{ SUPER|CTRL,       XK_h,         incrovgaps,     {.i = +1 } },          // increase horizontal gap
 	{ SUPER|CTRL|SHIFT, XK_h,         incrovgaps,     {.i = -1 } },          // decrease horizontal gap
 
