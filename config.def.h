@@ -11,7 +11,7 @@ static const unsigned int gappov    = gaps*2;   /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int user_bh            = 40;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int startontag         = 1;        /* 0 means no tag active on start */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
@@ -48,7 +48,7 @@ static const int attachdirection = 4; /* 0 default, 1 above, 2 aside, 3 below, 4
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* tiled clients*/
-	{ "><>",      NULL },    /* floating clients */
+	{ "<*>",      NULL },    /* floating clients */
 	{ "[M]",      monocle }, /* stacked maximised clients */
 	{ NULL,       NULL },
 };
